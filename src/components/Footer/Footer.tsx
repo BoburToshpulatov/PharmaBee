@@ -69,7 +69,7 @@ const Footer = () => {
       
 setTimeout(() => {
   animOnScroll();
-}, 500);
+}, 300);
  
 
       // Cleanup listener on unmount

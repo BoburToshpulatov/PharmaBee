@@ -98,7 +98,7 @@ line-height: 24px; /* 150% */
  display: flex;
  justify-content: center;
 height: 70px;
-background: var(#F9F9F9);;
+background: var(#F9F9F9);
  `
  export const NavbarBottomMain = styled.div`
  display: flex;

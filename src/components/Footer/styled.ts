@@ -16,7 +16,6 @@ export const FooterMain = styled.div`
   .footer_top._anim-items._active {
     opacity: 1;
     transform: translate(0px, 0px);
-    transition: all 0.8s ease ;
   }
 `;
 
@@ -59,7 +58,7 @@ margin-top: -15px;
 }
 .email._anim-items {
     opacity: 0;
-    transform: translate(0px, 100px);
+    transform: translate(0px, 80px);
     transition: all 0.8s ease 0s;
   }
 
