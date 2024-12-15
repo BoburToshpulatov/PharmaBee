@@ -135,6 +135,9 @@ transition: color 0.3s ease;
 p:hover{
     color: #19BE6F;
 }
+.active {
+    color: #19be6f; /* Green color for the active link */
+  }
 `
 export const PagesPopper = styled.div`
 display: flex;
@@ -143,7 +146,7 @@ align-items: center;
 gap: 7px;
  
 i{
-    margin-top: 1px;
+    margin-top: 2px;
     cursor: pointer;
     transition: color 0.3s ease;
     font-size: 18px;
@@ -157,6 +160,9 @@ i{
         color: #19BE6F;
     }
 }
+.active {
+    color: #19be6f; /* Green color for the active link */
+  }
 `
 export const PopperInf = styled.div`
 p{

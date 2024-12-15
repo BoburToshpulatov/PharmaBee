@@ -601,6 +601,7 @@ height: 2127px;
 display: flex;
 flex-direction: column;
 align-items: center;
+background: var(--Tertiary-1, #F9F9F9)
 `
 export const Brands = styled.div`
 display: flex;
@@ -828,7 +829,6 @@ margin: 0;
 img{
   width: 128px;
 height: 128px;
-flex-shrink: 0;
 border-radius: 50px;
 margin-top: 30px;
 
@@ -843,6 +843,7 @@ gap: 40px;
 width: 1196px;
 height: 481px;
 margin-top: 50px;
+padding-bottom: 100px;
 `
 
 export const PromotionInfMini = styled.div`

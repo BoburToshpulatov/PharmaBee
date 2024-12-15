@@ -5,13 +5,11 @@ import logo from '../../assets/navbar-img/pharmabee-logo.svg'
 import * as React from 'react';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Box from '@mui/material/Box';
 import Popper, { PopperPlacementType } from '@mui/material/Popper';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import Fade from '@mui/material/Fade';
 import Paper from '@mui/material/Paper';
+import { Link, useLocation } from "react-router-dom";
 
 
 
@@ -19,7 +17,7 @@ import Paper from '@mui/material/Paper';
 
 
 const Navbar = () => {
-
+  const location = useLocation();
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLDivElement | null>(null);
   const [open, setOpen] = React.useState(false);
@@ -58,9 +56,9 @@ const Navbar = () => {
         <NavbarBottomMain>
           <img src={logo} alt="logo-icon" />
           <Pages>
-            <p>Home</p>
-            <p>Shop</p>
-            <p>Services</p>
+           <Link style={{textDecoration:'none'}} to='/'><p  className={location.pathname === '/' ? 'active' : ''}>Home</p></Link>
+           <Link style={{textDecoration:'none'}} to='/shop'><p  className={location.pathname === '/shop' ? 'active' : ''}>Shop</p></Link>
+           <Link style={{textDecoration:'none'}} to='/services'><p  className={location.pathname === '/services' ? 'active' : ''}>Services</p></Link>
             <PagesPopper onClick={handleClick('bottom-start')}>
             
       <Popper 
@@ -76,7 +74,7 @@ const Navbar = () => {
             <Paper >
               <Typography sx={{ p: 2, marginTop:'-10px' }}>
                 <PopperInf>
-                <p>About us</p>
+                <Link style={{textDecoration:'none'}} to="/about"><p>About us</p></Link>
                 <p>Testimonial</p>
                 <p>FAQ</p>
                 <p>404</p>
@@ -91,8 +89,8 @@ const Navbar = () => {
      <i  className='fas fa-angle-down' style={{fontSize: '16px'}} ></i>
          </PagesPopper >
            
-           <p>Blog</p>
-            <p >Contact</p>
+         <Link style={{textDecoration:'none'}} to='/blog'><p  className={location.pathname === '/blog' ? 'active' : ''}>Blog</p></Link>
+         <Link style={{textDecoration:'none'}} to='/contact'><p  className={location.pathname === '/contact' ? 'active' : ''}>Contact</p></Link>
           </Pages>
           <Cart>
           <i className='fas fa-search'></i>
