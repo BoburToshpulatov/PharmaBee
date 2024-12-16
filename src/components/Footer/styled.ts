@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const FooterMain = styled.div`
   display: flex;
   flex-direction: column;
-  height: 942px;
   justify-content: center;
   align-items: center;
-  background: var(--Tertiary-1, #F9F9F9);
+  background: var(--Tertiary-1, #fff);
+  padding-top: 100px;
   .footer_top._anim-items {
     opacity: 0;
     transform: translate(0px, 100px);

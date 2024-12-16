@@ -99,6 +99,7 @@ line-height: 24px; /* 150% */
  justify-content: center;
 height: 70px;
 background: var(#F9F9F9);
+border-bottom: 1px solid lightgrey;
  `
  export const NavbarBottomMain = styled.div`
  display: flex;

@@ -73,7 +73,7 @@ align-items: center;
 width: 100%;
 height: 2106px;
 flex-shrink: 0;
-background: var(--Tertiary-1, #F9F9F9);
+background: var(--Tertiary-1, #FFF);
 
 `
 

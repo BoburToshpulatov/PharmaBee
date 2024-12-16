@@ -68,11 +68,10 @@ margin-top: 2px;
  `
  export const OurServices = styled.div`
  width: 100%;
- background: var(--Tertiary-1, #F9F9F9);
+ background: var(--Tertiary-1, #FFF);
  display: flex;
  flex-direction: column;
 align-items: center;
-padding-bottom: 100px;
  `
  export const ServicesText = styled.div`
  display: flex;
@@ -240,7 +239,7 @@ align-items: center;
 gap: 40px;
 width: 1132px;
 border-radius: 20px;
-background: var(--Tertiary-1, #F9F9F9);
+background: var(--Tertiary-1, #fff);
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 margin-top: 100px;
 `
@@ -296,10 +295,11 @@ justify-content: center;
 align-items: center;
 margin-top: -44px;
 border-radius: 10px;
-background: var(--Light, #FFF);
+background: var(--Light, #FFFFFF);
 
 /* shadow/1 */
-box-shadow: 0px 5px 40px 0px rgba(132, 155, 169, 0.10);
+box-shadow: 0px 8px 30px -2px rgba(132, 155, 169, 0.15);
+
 input{
 width: 429px;
 height: 56px;

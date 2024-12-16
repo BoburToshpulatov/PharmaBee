@@ -597,11 +597,11 @@ line-height: 24px; /* 133.333% */
 `
 export const MiddleWrapper = styled.div`
 width: 100%;
-height: 2127px;
+height: 2050px;
 display: flex;
 flex-direction: column;
 align-items: center;
-background: var(--Tertiary-1, #F9F9F9)
+background: var(--Tertiary-1, #FFF)
 `
 export const Brands = styled.div`
 display: flex;
@@ -843,7 +843,6 @@ gap: 40px;
 width: 1196px;
 height: 481px;
 margin-top: 50px;
-padding-bottom: 100px;
 `
 
 export const PromotionInfMini = styled.div`
