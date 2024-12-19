@@ -9,8 +9,8 @@ export const FooterMain = styled.div`
   padding-top: 100px;
   .footer_top._anim-items {
     opacity: 0;
-    transform: translate(0px, 100px);
-    transition: all 0.8s ease 0s;
+    transform: translate(0, 30%);
+    transition: all 1s ease 0.3s;
   }
 
   .footer_top._anim-items._active {
@@ -58,8 +58,8 @@ margin-top: -15px;
 }
 .email._anim-items {
     opacity: 0;
-    transform: translate(0px, 80px);
-    transition: all 0.8s ease 0s;
+    transform: translate(0px, 30%);
+    transition: all 1s ease 0.3s;
   }
 
   .email._anim-items._active {
@@ -147,7 +147,8 @@ export const LogoBox = styled.div`
   flex-direction: column;
   width: 372px;
   height: 186px;
-  gap: 36px;
+  justify-content: space-between;
+
   p {
     color: var(--Tertiary-2, #82929B);
     font-family: Nunito;

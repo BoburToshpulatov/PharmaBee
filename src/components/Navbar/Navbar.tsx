@@ -17,6 +17,8 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const Navbar = () => {
+ 
+
   const location = useLocation();
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLDivElement | null>(null);
@@ -74,7 +76,7 @@ const Navbar = () => {
             <Paper >
               <Typography sx={{ p: 2, marginTop:'-10px' }}>
                 <PopperInf>
-                <Link style={{textDecoration:'none'}} to="/about"><p>About us</p></Link>
+                <Link style={{textDecoration:'none'}} to="/about" ><p>About us</p></Link>
                 <p>Testimonial</p>
                 <p>FAQ</p>
                 <p>404</p>

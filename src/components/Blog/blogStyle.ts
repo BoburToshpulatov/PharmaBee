@@ -89,7 +89,7 @@ font-size: 18px;
 font-style: normal;
 font-weight: 700;
 line-height: 24px; /* 133.333% */
-margin: 0;
+
 }
 h1{
     color: var(--Dark, #062A3F);
@@ -101,7 +101,7 @@ font-size: 48px;
 font-style: normal;
 font-weight: 900;
 line-height: 64px; /* 133.333% */
-margin: 0;
+
 }
 p{
     color: var(--Dark, #062A3F);
@@ -113,7 +113,7 @@ font-size: 18px;
 font-style: normal;
 font-weight: 400;
 line-height: 28px; /* 155.556% */
-margin: 0;
+
 }
 `
 export const PromotionInf = styled.div`

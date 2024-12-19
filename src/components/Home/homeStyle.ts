@@ -22,6 +22,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-top: 64px;
+.float._anim-items {
+    opacity: 0;
+    transform: translate(0, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const PharmaBeeTopLeft = styled.div`
 display: flex;
@@ -68,6 +78,16 @@ width: 450px;
 margin: 0;
 margin-top: -5px;
 }
+.float._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const ProductsLocation = styled.div`
 display: flex;
@@ -155,7 +175,38 @@ border-radius: 20px;
 background-color:#FFFFFF;
 margin-top: 100px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+.float._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease ;
+  }
 
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.2s ;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.4s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 
 export const PharmaBeeBottomMini = styled.div`
@@ -227,6 +278,16 @@ margin: 0;
 margin-top: 766px;
 position: absolute;
 }
+.float._anim-items {
+    opacity: 0;
+    transform: translate(0, 20%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const CounterMedicineTop = styled.div`
 display: inline-flex;
@@ -235,6 +296,16 @@ align-items: center;
 width: 1196px;
 height: 84px;
 margin-top: 196px;
+.float._anim-items {
+    opacity: 0;
+    transform: translate(100%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 
 export const CounterMedicineTopLeft = styled.div`
@@ -265,43 +336,50 @@ font-weight: 400;
 line-height: 28px; /* 155.556% */
 margin: 0;
 }
+.float._anim-items._anim-items {
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
-export const CounterMedicineTopRight = styled.div<{ isHovered: boolean }>`
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-bottom: 1px solid  #82929B;;
-width: 89px;
-height: 40px;
-gap: 1.8px;
-padding: 0;
-cursor: pointer;
-p{
-  color: var(--Tertiary-2, #82929B);
-text-align: center;
+export const CounterMedicineTopRight = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #82929B;
+  width: 89px;
+  height: 40px;
+  gap: 1.8px;
+  margin: 10px;
+  cursor: pointer;
 
-/* Text Button */
-font-family: Roboto;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-line-height: 24px; /* 133.333% */
-}
-span{
-  color: var(--Tertiary-2, #82929B);
-text-align: center;
-font-family: "Font Awesome 5 Free";
-font-size: 18px;
-font-style: normal;
-line-height: 24px; /* 171.429% */
-margin-top: 4px;
-}
+  p {
+    color: var(--Tertiary-2, #82929B);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 133.333% */
+  }
 
-transition: transform 0.4s ease, background-color 0.3s ease;
+  span {
+    color: var(--Tertiary-2, #82929B);
+    text-align: center;
+    font-family: "Font Awesome 5 Free";
+    font-size: 18px;
+    font-style: normal;
+    line-height: 24px; /* 171.429% */
+    margin-top: 4px;
+  }
 
-/* Float up when hovered */
-transform: ${({ isHovered }) => (isHovered ? 'translateY(-10px)' : 'translateY(0)')};
-`
+
+`;
 export const CounterMedicineBottom = styled.div`
 display: inline-flex;
 align-items: flex-start;
@@ -309,6 +387,7 @@ gap: 40px;
 width: 1195px;
 height: 366px;
 margin-top: 50px;
+
 `
 export const CounterMedicineBottomMini = styled.div`
 display: flex;
@@ -407,6 +486,16 @@ margin: 0;
 margin-top: 670px;
 position: absolute;
 }
+.float._anim-items {
+    opacity: 0;
+    transform: translate(0, 20%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const MotherAndBabyTop = styled.div`
 display: inline-flex;
@@ -414,6 +503,16 @@ justify-content: space-between;
 align-items: center;
 width: 1196px;
 height: 84px;
+.float._anim-items {
+    opacity: 0;
+    transform: translate(100%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const Covid = styled.div`
 width: 100%;
@@ -479,6 +578,16 @@ margin: 0;
 padding: 0;
 margin-top: 32px;
 }
+.float._anim-items._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const ReadMore = styled.div<{ isHovered: boolean }>`
   display: flex;
@@ -543,6 +652,47 @@ align-self: center;
 flex-direction: column;
 align-items: flex-start;
 gap: 20px;
+overflow: hidden;
+.float._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  .float1._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.2s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  .float2._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.4s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  .float3._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.6s;
+  }
+
+  .float3._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const CovidMini3Instructions = styled.div`
 display: flex;
@@ -626,6 +776,16 @@ img{
   margin: 0;
   padding: 0;
 }
+.float._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 80%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const BrandsLogos = styled.div`
 display: flex;
@@ -708,6 +868,16 @@ font-weight: 900;
 line-height: 64px; /* 133.333% */
 margin: 0;
 }
+.float._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 80%);
+    transition: all 1s ease 0.2s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const TestimonialsPeople = styled.div`
 display: inline-flex;
@@ -716,6 +886,27 @@ gap: 40px;
 width: 1196px;
 height: 402px;
 margin-top: 50px;
+.float1._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 30%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 30%);
+    transition: all 1s ease 0.6s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 export const TestimonialsPeopleLeft = styled.div`
 display: flex;
@@ -843,6 +1034,16 @@ gap: 40px;
 width: 1196px;
 height: 481px;
 margin-top: 50px;
+.float._anim-items._anim-items{
+    opacity: 0;
+    transform: translate(0, 20%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `
 
 export const PromotionInfMini = styled.div`
