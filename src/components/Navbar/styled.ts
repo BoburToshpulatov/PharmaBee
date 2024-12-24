@@ -166,10 +166,11 @@ i{
   }
 `
 export const PopperInf = styled.div`
+display: flex;
+flex-direction: column;
+gap: 15px;
 p{
     color: var(--Dark, #82929B);
-
-/* Link/Regular */
 font-family: Nunito;
 font-size: 18px;
 font-style: normal;
@@ -181,6 +182,9 @@ transition: color 0.3s ease;
 p:hover{
     color: #19BE6F;
 }
+.active {
+    color: #19be6f; /* Green color for the active link */
+  }
 `
 
 

@@ -193,8 +193,8 @@ justify-content: center;
 align-items: flex-start;
 cursor: pointer;
 hr{
-width: 113px;
-height: 1px;
+width: 112px;
+height: 0.5px;
 background: #062A3F;
 margin: 0;
 }
