@@ -71,7 +71,6 @@ export const TrackMain = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 1000px;
 `;
 
 export const TrackText = styled.div`
@@ -119,7 +118,7 @@ export const TrackText = styled.div`
 
 export const OrderId = styled.div`
   padding: 32px 32px 32px 32px;
-  background-color: var(--e-global-color-099a789);
+  background: var(--Light, #fff);
   border-radius: 10px 10px 10px 10px;
   width: 736px;
   height: 284px;
@@ -214,7 +213,7 @@ export const PharmaBeeBottom = styled.div`
   width: 1132px;
   border-radius: 20px;
   background-color: #f9f9f9;
-  margin-top: -50px;
+  margin-top: -70px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   /* .float._anim-items {
     opacity: 0;
@@ -290,4 +289,152 @@ export const Hexogon = styled.div`
   justify-content: center;
   width: 86.603px;
   height: 96.906px;
+`;
+export const TextDivider = styled.div`
+  display: flex;
+  width: 1196px;
+  height: 102px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  h1 {
+    color: var(--Dark, #062a3f);
+    text-align: center;
+
+    /* Heading/2 */
+    font-family: Roboto;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 64px; /* 133.333% */
+  }
+`;
+
+export const ServicesDemo = styled.div`
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 40px;
+  width: 1196px;
+  height: 560px;
+  margin-top: 50px;
+`;
+export const ServicesDemoMini = styled.div`
+  display: flex;
+  width: 372px;
+  height: 560px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--Light, #fff);
+
+  /* shadow/1 */
+  box-shadow: 0px 5px 40px 0px rgba(132, 155, 169, 0.1);
+`;
+export const ServicesDemoMiniTop = styled.div`
+  img {
+    height: 272px;
+    width: 372px;
+    border-radius: 10px 10px 0px 0px;
+  }
+`;
+export const ServicesDemoMiniBottom = styled.div`
+  display: flex;
+  padding: 24px 32px 32px 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  h1 {
+    margin: 0;
+    color: var(--Dark, #062a3f);
+
+    /* Heading/4 */
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+  }
+  p {
+    color: var(--Dark, #062a3f);
+
+    /* Paragraph/body */
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+    margin: 0;
+  }
+`;
+export const ReadWithHr = styled.div<{ isHovered: boolean }>`
+  display: flex;
+  padding-top: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  hr {
+    width: 112px;
+    height: 0.5px;
+    background: #062a3f;
+    margin: 0;
+  }
+  transition: transform 0.4s ease, background-color 0.3s ease;
+
+  /* Float up when hovered */
+  transform: ${({ isHovered }) =>
+    isHovered ? "translateY(-10px)" : "translateY(0)"};
+`;
+export const ReadMore = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  p {
+    color: var(--Dark, #062a3f);
+    text-align: center;
+
+    /* Text Button */
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 133.333% */
+    margin: 0;
+  }
+  span {
+    color: var(--Dark, #062a3f);
+    text-align: center;
+    font-family: "Font Awesome 5 Free";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 24px; /* 171.429% */
+  }
+`;
+
+export const TrackBtn = styled.button<{ isHovered: boolean }>`
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 50px;
+  background: var(--Primary, #19be6f);
+  color: var(--Light, #fff);
+  text-align: center;
+  margin-top: 32px;
+  border: none;
+  /* Text Button */
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  transition: transform 0.4s ease, background-color 0.3s ease;
+
+  /* Float up when hovered */
+  transform: ${({ isHovered }) =>
+    isHovered ? "translateY(-10px)" : "translateY(0)"};
 `;

@@ -9,6 +9,14 @@ import {
   OrderIdMiddleBoxes,
   PharmaBeeBottom,
   PharmaBeeBottomMini,
+  ReadMore,
+  ReadWithHr,
+  ServicesDemo,
+  ServicesDemoMini,
+  ServicesDemoMiniBottom,
+  ServicesDemoMiniTop,
+  TextDivider,
+  TrackBtn,
   TrackMain,
   TrackText,
 } from "./trackStyle";
@@ -18,6 +26,10 @@ import miniPolygon from "../../../assets/home-img/icon-polygon.svg";
 import lorry from "../../../assets/home-img/shipped.svg";
 import support from "../../../assets/home-img/support.svg";
 import approved from "../../../assets/home-img/approved.svg";
+import divider from "../../../assets/home-img/divider (1).svg";
+import Doctor1 from "../../../assets/services-img/woman-doctor.png";
+import Doctor2 from "../../../assets/services-img/man-doctor.png";
+import Doctor3 from "../../../assets/services-img/doctor3.png";
 
 const TrackComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
@@ -145,6 +157,114 @@ const TrackComponent = () => {
             </p>
           </PharmaBeeBottomMini>
         </PharmaBeeBottom>
+        <TextDivider>
+          <h1>Our Services</h1>
+          <img src={divider} alt="divider-img" />
+        </TextDivider>
+
+        <ServicesDemo>
+          <ServicesDemoMini>
+            <ServicesDemoMiniTop>
+              <img src={Doctor1} alt="woman-img" />
+            </ServicesDemoMiniTop>
+            <ServicesDemoMiniBottom>
+              <h1>Reviewing Medicines</h1>
+              <p>
+                Risus turpis blandit tellus orcivel quam sup lobortis nibh
+                pretium euleo us blandit nibh pharetra is velit celerisque sit
+                id volutpat.
+              </p>
+              <ReadWithHr
+                isHovered={activeButton === 1}
+                onMouseEnter={() => setActiveButton(1)}
+                onMouseLeave={() => setActiveButton(null)}
+              >
+                <ReadMore>
+                  <p>Readmore</p>
+                  <span>
+                    <i
+                      style={{ marginTop: "9px", fontSize: "33px" }}
+                      className="material-icons"
+                    >
+                      keyboard_arrow_right
+                    </i>
+                  </span>
+                </ReadMore>
+                <hr />
+              </ReadWithHr>
+            </ServicesDemoMiniBottom>
+          </ServicesDemoMini>
+          <ServicesDemoMini>
+            <ServicesDemoMiniTop>
+              <img src={Doctor2} alt="woman-img" />
+            </ServicesDemoMiniTop>
+            <ServicesDemoMiniBottom>
+              <h1>Reviewing Medicines</h1>
+              <p>
+                Risus turpis blandit tellus orcivel quam sup lobortis nibh
+                pretium euleo us blandit nibh pharetra is velit celerisque sit
+                id volutpat.
+              </p>
+              <ReadWithHr
+                isHovered={activeButton === 2}
+                onMouseEnter={() => setActiveButton(2)}
+                onMouseLeave={() => setActiveButton(null)}
+              >
+                <ReadMore>
+                  <p>Readmore</p>
+                  <span>
+                    <i
+                      style={{ marginTop: "9px", fontSize: "33px" }}
+                      className="material-icons"
+                    >
+                      keyboard_arrow_right
+                    </i>
+                  </span>
+                </ReadMore>
+                <hr />
+              </ReadWithHr>
+            </ServicesDemoMiniBottom>
+          </ServicesDemoMini>
+          <ServicesDemoMini>
+            <ServicesDemoMiniTop>
+              <img src={Doctor3} alt="woman-img" />
+            </ServicesDemoMiniTop>
+            <ServicesDemoMiniBottom>
+              <h1>Reviewing Medicines</h1>
+              <p>
+                Risus turpis blandit tellus orcivel quam sup lobortis nibh
+                pretium euleo us blandit nibh pharetra is velit celerisque sit
+                id volutpat.
+              </p>
+              <ReadWithHr
+                isHovered={activeButton === 3}
+                onMouseEnter={() => setActiveButton(3)}
+                onMouseLeave={() => setActiveButton(null)}
+              >
+                <ReadMore>
+                  <p>Readmore</p>
+                  <span>
+                    <i
+                      style={{ marginTop: "9px", fontSize: "33px" }}
+                      className="material-icons"
+                    >
+                      keyboard_arrow_right
+                    </i>
+                  </span>
+                </ReadMore>
+                <hr />
+              </ReadWithHr>
+            </ServicesDemoMiniBottom>
+          </ServicesDemoMini>
+        </ServicesDemo>
+
+        <TrackBtn
+          isHovered={activeButton === 4}
+          onMouseEnter={() => setActiveButton(4)}
+          onMouseLeave={() => setActiveButton(null)}
+        >
+          View All
+        </TrackBtn>
       </TrackMain>
     </>
   );
