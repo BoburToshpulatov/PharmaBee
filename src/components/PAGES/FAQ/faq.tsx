@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { useState } from "react";
 import {
   AccordionMain,
@@ -28,6 +28,15 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const FaqComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+
+  const [expanded, setExpanded] = useState<string | false>(false);
+
+  const handleChange =
+    (panel: string) =>
+    (event: SyntheticEvent, isExpanded: boolean): void => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
   return (
     <>
       <BackgroundImg>
@@ -85,63 +94,107 @@ const FaqComponent = () => {
         <AccordionMain>
           <AccordionMainLeft>
             <h2>Getting Started</h2>
-            <Accordion>
+            <Accordion
+              className="accordion"
+              expanded={expanded === "panel1"}
+              onChange={handleChange("panel1")}
+            >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon className="exp-icon" />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography component="span">Accordion 1</Typography>
+                <Typography component="span">
+                  <h1>How is my price determined?</h1>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit eget
+                  arcu sit dignissim in hendrerit sit morbi turpis commodo
+                  tincidunt volutpat sodales mauris molestie sagittis blandit at
+                  erat et pretium ultricies massa eu in lacus lorem tincidunt
+                  ultrices eget sed fermentum diam etiam ac mauris vestibulum
+                  augue suspendisse integer massa. Ipsum tortor et.
+                </p>
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion
+              className="accordion"
+              expanded={expanded === "panel2"}
+              onChange={handleChange("panel2")}
+            >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon className="exp-icon" />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography component="span">Accordion 1</Typography>
+                <Typography component="span">
+                  <h1>Augue nam egestas egestas hac</h1>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit eget
+                  arcu sit dignissim in hendrerit sit morbi turpis commodo
+                  tincidunt volutpat sodales mauris molestie sagittis blandit at
+                  erat et pretium ultricies massa eu in lacus lorem tincidunt
+                  ultrices eget sed fermentum diam etiam ac mauris vestibulum
+                  augue suspendisse integer massa. Ipsum tortor et.
+                </p>
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion
+              className="accordion"
+              expanded={expanded === "panel3"}
+              onChange={handleChange("panel3")}
+            >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon className="exp-icon" />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography component="span">Accordion 1</Typography>
+                <Typography component="span">
+                  <h1>Etiam nibh consequat pellentesque</h1>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit eget
+                  arcu sit dignissim in hendrerit sit morbi turpis commodo
+                  tincidunt volutpat sodales mauris molestie sagittis blandit at
+                  erat et pretium ultricies massa eu in lacus lorem tincidunt
+                  ultrices eget sed fermentum diam etiam ac mauris vestibulum
+                  augue suspendisse integer massa. Ipsum tortor et.
+                </p>
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion
+              className="accordion"
+              expanded={expanded === "panel4"}
+              onChange={handleChange("panel4")}
+            >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={<ExpandMoreIcon className="exp-icon" />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography component="span">Accordion 1</Typography>
+                <Typography component="span">
+                  <h1>Laoreet scelerisque sed orci augue</h1>
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit eget
+                  arcu sit dignissim in hendrerit sit morbi turpis commodo
+                  tincidunt volutpat sodales mauris molestie sagittis blandit at
+                  erat et pretium ultricies massa eu in lacus lorem tincidunt
+                  ultrices eget sed fermentum diam etiam ac mauris vestibulum
+                  augue suspendisse integer massa. Ipsum tortor et.
+                </p>
               </AccordionDetails>
             </Accordion>
           </AccordionMainLeft>

@@ -213,7 +213,6 @@ export const AccordionMain = styled.div`
   height: auto;
   display: flex;
   gap: 40px;
-  border: 1px solid black;
   margin-top: 100px;
 `;
 
@@ -222,7 +221,7 @@ export const AccordionMainLeft = styled.div`
   width: 681px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 30px;
   h2 {
     color: var(--Primary, #19be6f);
 
@@ -233,13 +232,48 @@ export const AccordionMainLeft = styled.div`
     font-weight: 700;
     line-height: 32px; /* 133.333% */
   }
+  .accordion {
+    /* box-shadow: none;
+    border: none;
+    transition: ease 0.3s; */
+
+    h1 {
+      color: var(--Dark, #062a3f);
+
+      /* Heading/3 */
+      font-family: Roboto;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 48px; /* 133.333% */
+    }
+    p {
+      color: var(--Dark, #0b1a30);
+
+      /* Paragraph/body */
+      font-family: Nunito;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 28px; /* 155.556% */
+    }
+    .exp-icon {
+      color: var(--Dark, #062a3f);
+      font-family: "Font Awesome 5 Free";
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+      overflow: hidden;
+      transition: height 0.3s ease;
+    }
+  }
 `;
 
 export const AccordionMainRight = styled.div`
   width: 475px;
   height: auto;
   border-radius: 20px;
-  border: 1px solid black;
   background-image: url("${womanDoctor}");
   background-position: center;
   background-repeat: no-repeat;
