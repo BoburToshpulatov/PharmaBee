@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   BackgroundImg,
   BackgroundText,
@@ -31,12 +31,50 @@ import mail from "../../../assets/location-img/mail.svg";
 
 const LocationComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
   return (
     <>
       <BackgroundImg>
         <img src={background} alt="background-img" />
         <BackgroundText>
-          <h1>Our Locations</h1>
+          <h1 className="float _anim-items _anim-no-hide">Our Locations</h1>
           <HomeDirect>
             <span>
               <i className="fas fa-home"></i>
@@ -65,7 +103,9 @@ const LocationComponent = () => {
         <LocationImgText>
           <LocationImgTextLeft>
             <h2>LOCATION</h2>
-            <h1>See our locations and find the one closest one to you</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              See our locations and find the one closest one to you
+            </h1>
             <p>
               A lectus ac pulvinar tincidunt accumsan ullamcorper dolor acsed
               facilisis hac molestie aliquam blandit accumsan ullamcorper.

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import HomeComponent from "./components/Home/home";
@@ -13,14 +13,19 @@ import PricingComponent from "./components/PAGES/Pricing/pricing";
 import TeamComponent from "./components/PAGES/Team/team";
 import TestimonialComponent from "./components/PAGES/Testimonial/testimonial";
 import FaqComponent from "./components/PAGES/FAQ/faq";
-import NotFound from "./components/PAGES/404/404";
 import ComingsoonComponent from "./components/PAGES/ComingSoon/comingsoon";
 import PopupComponent from "./components/PAGES/Popup/popup";
+import NotFound from "./components/PAGES/404/404";
 
 const RouterComponents = () => {
+  let location = useLocation();
+
+  const hiddenNavbar =
+    location.pathname !== "/comingsoon" && location.pathname !== "/popup";
+
   return (
     <>
-      <Navbar />
+      {hiddenNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/about" element={<AboutUs />} />
@@ -38,7 +43,7 @@ const RouterComponents = () => {
         <Route path="/comingsoon" element={<ComingsoonComponent />} />
         <Route path="/popup" element={<PopupComponent />} />
       </Routes>
-      <Footer />
+      {hiddenNavbar && <Footer />}
     </>
   );
 };

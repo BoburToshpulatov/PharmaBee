@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   BackgroundImg,
   BackgroundText,
@@ -33,13 +33,50 @@ import Doctor3 from "../../../assets/services-img/doctor3.png";
 
 const TrackComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
 
   return (
     <>
       <BackgroundImg>
         <img src={client} alt="background-img" />
         <BackgroundText>
-          <h1>Track Order</h1>
+          <h1 className="float _anim-items _anim-no-hide">Track Order</h1>
           <HomeDirect>
             <span>
               <i className="fas fa-home"></i>
@@ -66,7 +103,9 @@ const TrackComponent = () => {
         />
         <TrackText>
           <h2>TRACK ORDER</h2>
-          <h1>Track Your Order Now</h1>
+          <h1 className="float _anim-items _anim-no-hide">
+            Track Your Order Now
+          </h1>
           <p>
             Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
             pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -158,12 +197,12 @@ const TrackComponent = () => {
           </PharmaBeeBottomMini>
         </PharmaBeeBottom>
         <TextDivider>
-          <h1>Our Services</h1>
+          <h1 className="float _anim-items _anim-no-hide">Our Services</h1>
           <img src={divider} alt="divider-img" />
         </TextDivider>
 
         <ServicesDemo>
-          <ServicesDemoMini>
+          <ServicesDemoMini className="float _anim-items _anim-no-hide">
             <ServicesDemoMiniTop>
               <img src={Doctor1} alt="woman-img" />
             </ServicesDemoMiniTop>
@@ -194,7 +233,7 @@ const TrackComponent = () => {
               </ReadWithHr>
             </ServicesDemoMiniBottom>
           </ServicesDemoMini>
-          <ServicesDemoMini>
+          <ServicesDemoMini className="float1 _anim-items _anim-no-hide">
             <ServicesDemoMiniTop>
               <img src={Doctor2} alt="woman-img" />
             </ServicesDemoMiniTop>
@@ -225,7 +264,7 @@ const TrackComponent = () => {
               </ReadWithHr>
             </ServicesDemoMiniBottom>
           </ServicesDemoMini>
-          <ServicesDemoMini>
+          <ServicesDemoMini className="float2 _anim-items _anim-no-hide">
             <ServicesDemoMiniTop>
               <img src={Doctor3} alt="woman-img" />
             </ServicesDemoMiniTop>

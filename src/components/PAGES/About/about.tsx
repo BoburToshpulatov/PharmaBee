@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   AboutMain,
   BackgroundImg,
@@ -43,12 +43,50 @@ import gene from "../../../assets/home-img/gene.png";
 
 const AboutUs = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
   return (
     <>
       <BackgroundImg>
         <img src={scientist} alt="background-img" />
         <BackgroundText>
-          <h1>About Us</h1>
+          <h1 className="float _anim-items _anim-no-hide">About Us</h1>
           <HomeDirect>
             <span>
               <i className="fas fa-home"></i>
@@ -71,7 +109,9 @@ const AboutUs = () => {
         <MainImg>
           <MainImgLeft>
             <h2>ABOUT US</h2>
-            <h1>Arcu eu elit est elementum quam sem nibh adipiscing duied.</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Arcu eu elit est elementum quam sem nibh adipiscing duied.
+            </h1>
             <p>
               Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
               pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -106,7 +146,9 @@ const AboutUs = () => {
         </MainImg>
 
         <TextDivider>
-          <h1>Why Shop From Pharmabee</h1>
+          <h1 className="float _anim-items _anim-no-hide">
+            Why Shop From Pharmabee
+          </h1>
           <img src={divider} alt="divider-icon" />
         </TextDivider>
 
@@ -178,7 +220,9 @@ const AboutUs = () => {
           />
           <TeamText>
             <h2>TEAM</h2>
-            <h1>Our Professional Team</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Our Professional Team
+            </h1>
             <p>
               Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
               pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -187,7 +231,7 @@ const AboutUs = () => {
           </TeamText>
 
           <TeamMembers>
-            <TeamMembersMini>
+            <TeamMembersMini className="float _anim-items _anim-no-hide">
               <TeamMembersMiniTop>
                 <img src={team1} alt="team-img" />
               </TeamMembersMiniTop>
@@ -196,7 +240,7 @@ const AboutUs = () => {
                 <p>Founder PharmaBee</p>
               </TeamMembersMiniBottom>
             </TeamMembersMini>
-            <TeamMembersMini>
+            <TeamMembersMini className="float1 _anim-items _anim-no-hide">
               <TeamMembersMiniTop>
                 <img src={team2} alt="team-img" />
               </TeamMembersMiniTop>
@@ -205,7 +249,7 @@ const AboutUs = () => {
                 <p>CEO & Founder</p>
               </TeamMembersMiniBottom>
             </TeamMembersMini>
-            <TeamMembersMini>
+            <TeamMembersMini className="float2 _anim-items _anim-no-hide">
               <TeamMembersMiniTop>
                 <img src={team3} alt="team-img" />
               </TeamMembersMiniTop>
@@ -217,10 +261,10 @@ const AboutUs = () => {
           </TeamMembers>
         </TeamContainer>
         <TeamCovid>
-          <TeamCovidLeft></TeamCovidLeft>
-          <TeamCovidRight>
+          <TeamCovidLeft className="float _anim-items _anim-no-hide"></TeamCovidLeft>
+          <TeamCovidRight className="float _anim-items _anim-no-hide">
             <h2>INFORMATION</h2>
-            <h1>COVID-19</h1>
+            <h1 className="float _anim-items _anim-no-hide">COVID-19</h1>
             <p>
               Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
               pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -250,7 +294,7 @@ const AboutUs = () => {
         </TeamCovid>
 
         <TextDivider>
-          <h1>Testimonials</h1>
+          <h1 className="float _anim-items _anim-no-hide">Testimonials</h1>
           <img src={divider} alt="divider-icon" />
         </TextDivider>
 

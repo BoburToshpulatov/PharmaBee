@@ -6,9 +6,14 @@ import {
   AccordionMainRight,
   BackgroundImg,
   BackgroundText,
+  ContactUs,
+  ContactUsLeft,
+  ContactUsLeftEmail,
+  ContactUsRight,
   FaqMain,
   FaqMainText,
   HomeDirect,
+  MsgBtn,
   Process,
   ProcessMini1,
   ProcessMini2,
@@ -29,7 +34,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const FaqComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
 
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const [expanded, setExpanded] = useState<string | false>("panel1");
 
   const handleChange =
     (panel: string) =>
@@ -200,6 +205,34 @@ const FaqComponent = () => {
           </AccordionMainLeft>
           <AccordionMainRight></AccordionMainRight>
         </AccordionMain>
+
+        <ContactUs>
+          <ContactUsLeft>
+            <ContactUsLeftEmail>
+              <input type="text" placeholder="Your name" />
+              <input type="email" placeholder="Email address" />
+              <input type="number" placeholder="Phone Number" />
+              <textarea placeholder="Message"></textarea>
+              <MsgBtn
+                isHovered={activeButton === 8}
+                onMouseEnter={() => setActiveButton(8)}
+                onMouseLeave={() => setActiveButton(null)}
+              >
+                Send Message
+              </MsgBtn>
+            </ContactUsLeftEmail>
+          </ContactUsLeft>
+          <ContactUsRight>
+            <h2>CONTACT US</h2>
+            <h1>Free consultation with us now</h1>
+            <p>
+              Augue Sed viverra nulla Interdum mia bibendum velit sapien usop
+              scelerisqu ictum quam tincidunt nec feugiat augue tincidunt Etiam
+              pretium diam rhoncus. gida turpis cursus. Nuncsed fringilla tortor
+              iaculis eget tincidunt accumsan ullamcorper.
+            </p>
+          </ContactUsRight>
+        </ContactUs>
       </FaqMain>
     </>
   );

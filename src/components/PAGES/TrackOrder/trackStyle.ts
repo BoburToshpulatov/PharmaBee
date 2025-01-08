@@ -27,6 +27,16 @@ export const BackgroundText = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: space-between;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(100%, 0) scale(0.1);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
   h1 {
     margin: 0;
     color: var(--Light, #fff);
@@ -81,6 +91,16 @@ export const TrackText = styled.div`
   align-items: center;
   gap: 32px;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 65%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: none;
+  }
   h2 {
     color: var(--Tertiary-2, #82929b);
     text-align: center;
@@ -215,7 +235,7 @@ export const PharmaBeeBottom = styled.div`
   background-color: #f9f9f9;
   margin-top: -70px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  /* .float._anim-items {
+  .float._anim-items {
     opacity: 0;
     transform: translate(0, 100%);
     transition: all 1s ease;
@@ -246,7 +266,7 @@ export const PharmaBeeBottom = styled.div`
   .float2._anim-items._active {
     opacity: 1;
     transform: translate(0px, 0px);
-  } */
+  }
 `;
 
 export const PharmaBeeBottomMini = styled.div`
@@ -297,6 +317,16 @@ export const TextDivider = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
   h1 {
     color: var(--Dark, #062a3f);
     text-align: center;
@@ -317,6 +347,38 @@ export const ServicesDemo = styled.div`
   width: 1196px;
   height: 560px;
   margin-top: 50px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.2s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.4s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 export const ServicesDemoMini = styled.div`
   display: flex;
