@@ -20,6 +20,16 @@ export const ComingSoonMainContent = styled.div`
     width: 200px;
     height: 34px;
   }
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 80%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 export const ComingSoonMainContentText = styled.div`
   display: inline-flex;

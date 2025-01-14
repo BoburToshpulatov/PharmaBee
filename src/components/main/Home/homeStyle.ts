@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import covid from "../../assets/home-img/covid.png";
+import covid from "../../../assets/home-img/covid.png";
 
 export const PharmaBeeWrapper = styled.div`
   display: flex;

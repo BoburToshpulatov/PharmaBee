@@ -19,17 +19,17 @@ import {
   PolicyIcons,
   PolicyIconsMini,
 } from "./styled";
-import divider from "../../assets/footer/divider.svg";
-import polygon from "../../assets/footer/bg-polygon.svg";
-import logo from "../../assets/footer/pharmabee-logo (1).svg";
-import box from "../../assets/footer/box.svg";
-import clock from "../../assets/footer/clock.svg";
-import operator from "../../assets/footer/operator.svg";
-import mail from "../../assets/footer/mail.svg";
-import facebook from "../../assets/footer/facebook.svg";
-import twitter from "../../assets/footer/twitter.svg";
-import instagram from "../../assets/footer/instagram.svg";
-import youtube from "../../assets/footer/youtube.svg";
+import divider from "../../../assets/footer/divider.svg";
+import polygon from "../../../assets/footer/bg-polygon.svg";
+import logo from "../../../assets/footer/pharmabee-logo (1).svg";
+import box from "../../../assets/footer/box.svg";
+import clock from "../../../assets/footer/clock.svg";
+import operator from "../../../assets/footer/operator.svg";
+import mail from "../../../assets/footer/mail.svg";
+import facebook from "../../../assets/footer/facebook.svg";
+import twitter from "../../../assets/footer/twitter.svg";
+import instagram from "../../../assets/footer/instagram.svg";
+import youtube from "../../../assets/footer/youtube.svg";
 
 const Footer = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);

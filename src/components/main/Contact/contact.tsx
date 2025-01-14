@@ -16,12 +16,12 @@ import {
   MapContainerRight,
   MsgBtn,
 } from "./contactStyle";
-import scientists from "../../assets/contactUs-img/background.png";
-import polygon from "../../assets/blog-img/bg-polygon (4).svg";
-import window from "../../assets/contactUs-img/window.svg";
-import clock from "../../assets/contactUs-img/clock.svg";
-import operator from "../../assets/contactUs-img/operator.svg";
-import mail from "../../assets/contactUs-img/mail.svg";
+import scientists from "../../../assets/contactUs-img/background.png";
+import polygon from "../../../assets/blog-img/bg-polygon (4).svg";
+import window from "../../../assets/contactUs-img/window.svg";
+import clock from "../../../assets/contactUs-img/clock.svg";
+import operator from "../../../assets/contactUs-img/operator.svg";
+import mail from "../../../assets/contactUs-img/mail.svg";
 
 const ContactComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);

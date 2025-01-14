@@ -27,6 +27,16 @@ export const BackgroundText = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: space-between;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(110%, 0) scale(0.1);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
   h1 {
     margin: 0;
     color: var(--Light, #fff);
@@ -90,6 +100,16 @@ export const TeamText = styled.div`
   align-items: center;
   gap: 32px;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 65%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: none;
+  }
   h2 {
     color: var(--Tertiary-2, #82929b);
     text-align: center;
@@ -129,6 +149,38 @@ export const TeamMembers = styled.div`
   height: 600px;
   gap: 40px;
   margin-top: 50px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.2s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.4s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 export const TeamMembers2 = styled.div`
   display: inline-flex;
@@ -137,6 +189,38 @@ export const TeamMembers2 = styled.div`
   height: 600px;
   gap: 40px;
   margin-top: 40px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.2s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.4s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 export const TeamMembersMini = styled.div`
   display: flex;
@@ -194,6 +278,16 @@ export const StaffText = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
   h1 {
     color: var(--Dark, #062a3f);
     text-align: center;

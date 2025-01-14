@@ -125,12 +125,12 @@ const LocationComponent = () => {
         </LocationImgText>
 
         <LocationDivider>
-          <h1>Our Locations</h1>
+          <h1 className="float _anim-items _anim-no-hide">Our Locations</h1>
           <img src={divider} alt="divider-icon" />
         </LocationDivider>
 
         <LocationBox>
-          <LocationBoxMini>
+          <LocationBoxMini className="float _anim-items _anim-no-hide">
             <h1>4200 Hamill Avenue, San Diego, California 92109</h1>
             <LocationDetails>
               <LocationDetailsMini>
@@ -162,7 +162,7 @@ const LocationComponent = () => {
               </span>
             </ReadMore>
           </LocationBoxMini>
-          <LocationBoxMini>
+          <LocationBoxMini className="float1 _anim-items _anim-no-hide">
             <h1>4200 Hamill Avenue, San Diego, California 92109</h1>
             <LocationDetails>
               <LocationDetailsMini>
@@ -194,7 +194,7 @@ const LocationComponent = () => {
               </span>
             </ReadMore>
           </LocationBoxMini>
-          <LocationBoxMini>
+          <LocationBoxMini className="float2 _anim-items _anim-no-hide">
             <h1>4200 Hamill Avenue, San Diego, California 92109</h1>
             <LocationDetails>
               <LocationDetailsMini>
@@ -229,7 +229,7 @@ const LocationComponent = () => {
         </LocationBox>
 
         <LocationBox>
-          <LocationBoxMini>
+          <LocationBoxMini className="float _anim-items _anim-no-hide">
             <h1>4200 Hamill Avenue, San Diego, California 92109</h1>
             <LocationDetails>
               <LocationDetailsMini>
@@ -261,7 +261,7 @@ const LocationComponent = () => {
               </span>
             </ReadMore>
           </LocationBoxMini>
-          <LocationBoxMini>
+          <LocationBoxMini className="float1 _anim-items _anim-no-hide">
             <h1>4200 Hamill Avenue, San Diego, California 92109</h1>
             <LocationDetails>
               <LocationDetailsMini>
@@ -293,7 +293,7 @@ const LocationComponent = () => {
               </span>
             </ReadMore>
           </LocationBoxMini>
-          <LocationBoxMini>
+          <LocationBoxMini className="float2 _anim-items _anim-no-hide">
             <h1>4200 Hamill Avenue, San Diego, California 92109</h1>
             <LocationDetails>
               <LocationDetailsMini>
@@ -345,7 +345,9 @@ const LocationComponent = () => {
           </ContactUsLeft>
           <ContactUsRight>
             <h2>CONTACT US</h2>
-            <h1>Free consultation with us now</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Free consultation with us now
+            </h1>
             <p>
               Augue Sed viverra nulla Interdum mia bibendum velit sapien usop
               scelerisqu ictum quam tincidunt nec feugiat augue tincidunt Etiam

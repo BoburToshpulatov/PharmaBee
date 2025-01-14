@@ -29,6 +29,16 @@ export const BackgroundText = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: space-between;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(200%, 0) scale(0.1);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
   h1 {
     margin: 0;
     color: var(--Light, #fff);
@@ -84,6 +94,16 @@ export const FaqMainText = styled.div`
   align-items: center;
   gap: 32px;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 40%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: none;
+  }
   h2 {
     color: var(--Tertiary-2, #82929b);
     text-align: center;
@@ -125,6 +145,38 @@ export const Process = styled.div`
   width: 1196px;
   height: 200px;
   margin-top: 50px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(-150%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 60%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items {
+    opacity: 0;
+    transform: translate(150%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 export const ProcessMini1 = styled.div`
   width: 372px;
@@ -134,6 +186,7 @@ export const ProcessMini1 = styled.div`
   justify-content: center;
   border-radius: 20px;
   background: var(--Primary, #19be6f);
+  overflow: none;
   img {
     width: 372px;
     height: 200px;
@@ -215,6 +268,27 @@ export const AccordionMain = styled.div`
   display: flex;
   gap: 40px;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(-90%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(125%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 
 export const AccordionMainLeft = styled.div`
@@ -223,6 +297,7 @@ export const AccordionMainLeft = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 30px;
+
   h2 {
     color: var(--Primary, #19be6f);
 
@@ -394,6 +469,16 @@ export const ContactUsRight = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
   h2 {
     color: var(--Tertiary-2, #82929b);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   BackgroundImg,
   BackgroundText,
@@ -38,12 +38,50 @@ import Doctor3 from "../../../assets/services-img/doctor3.png";
 
 const PricingComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
   return (
     <>
       <BackgroundImg>
         <img src={scientist} alt="background-img" />
         <BackgroundText>
-          <h1>Pricing</h1>
+          <h1 className="float _anim-items _anim-no-hide">Pricing</h1>
           <HomeDirect>
             <span>
               <i className="fas fa-home"></i>
@@ -70,7 +108,7 @@ const PricingComponent = () => {
         />
         <PricingText>
           <h2>PRICING</h2>
-          <h1>Pricing plan</h1>
+          <h1 className="float _anim-items _anim-no-hide">Pricing plan</h1>
           <p>
             Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
             pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -78,7 +116,7 @@ const PricingComponent = () => {
           </p>
         </PricingText>
 
-        <PricingBox>
+        <PricingBox className="float _anim-items _anim-no-hide">
           <PricingBoxBasic>
             <h2>BASIC</h2>
             <h1>
@@ -212,12 +250,12 @@ const PricingComponent = () => {
         </PricingBox>
 
         <TextDivider>
-          <h1>Our Services</h1>
+          <h1 className="float _anim-items _anim-no-hide">Our Services</h1>
           <img src={divider} alt="divider-img" />
         </TextDivider>
 
         <ServicesDemo>
-          <ServicesDemoMini>
+          <ServicesDemoMini className="float _anim-items _anim-no-hide">
             <ServicesDemoMiniTop>
               <img src={Doctor1} alt="woman-img" />
             </ServicesDemoMiniTop>
@@ -248,7 +286,7 @@ const PricingComponent = () => {
               </ReadWithHr>
             </ServicesDemoMiniBottom>
           </ServicesDemoMini>
-          <ServicesDemoMini>
+          <ServicesDemoMini className="float1 _anim-items _anim-no-hide">
             <ServicesDemoMiniTop>
               <img src={Doctor2} alt="woman-img" />
             </ServicesDemoMiniTop>
@@ -279,7 +317,7 @@ const PricingComponent = () => {
               </ReadWithHr>
             </ServicesDemoMiniBottom>
           </ServicesDemoMini>
-          <ServicesDemoMini>
+          <ServicesDemoMini className="float2 _anim-items _anim-no-hide">
             <ServicesDemoMiniTop>
               <img src={Doctor3} alt="woman-img" />
             </ServicesDemoMiniTop>
@@ -338,7 +376,9 @@ const PricingComponent = () => {
           </ContactUsLeft>
           <ContactUsRight>
             <h2>CONTACT US</h2>
-            <h1>Free consultation with us now</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Free consultation with us now
+            </h1>
             <p>
               Augue Sed viverra nulla Interdum mia bibendum velit sapien usop
               scelerisqu ictum quam tincidunt nec feugiat augue tincidunt Etiam

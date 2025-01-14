@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   CLock,
   ClockMini,
@@ -28,6 +28,44 @@ const ComingsoonComponent = () => {
   const hours = Math.floor((time % (24 * 60 * 60)) / (60 * 60));
   const minutes = Math.floor((time % (60 * 60)) / 60);
   const seconds = time % 60;
+
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
   return (
     <>
       <ComingSoonMain>
@@ -43,10 +81,12 @@ const ComingsoonComponent = () => {
         <ComingSoonMainContent>
           <img src={logo} alt="logo" />
           <ComingSoonMainContentText>
-            <h1>Our new site is coming</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Our new site is coming
+            </h1>
             <p>Please check again in the near future.</p>
           </ComingSoonMainContentText>
-          <CLock>
+          <CLock className="float _anim-items _anim-no-hide">
             <ClockMini>
               <h1>{String(days).padStart(2, "0")}</h1>
               <h2>DAYS</h2>

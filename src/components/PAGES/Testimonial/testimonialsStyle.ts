@@ -27,6 +27,16 @@ export const BackgroundText = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: space-between;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(100%, 0) scale(0.1);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
   h1 {
     margin: 0;
     color: var(--Light, #fff);
@@ -89,6 +99,16 @@ export const TestimonialsMainText = styled.div`
   align-items: center;
   gap: 32px;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 65%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: none;
+  }
   h2 {
     color: var(--Tertiary-2, #82929b);
     text-align: center;
@@ -132,9 +152,9 @@ export const TestimonialsPeople = styled.div`
   height: 402px;
   margin-top: 50px;
   z-index: 1;
-  /* .float1._anim-items._anim-items {
+  .float1._anim-items._anim-items {
     opacity: 0;
-    transform: translate(0, 30%);
+    transform: translate(0, 40%);
     transition: all 1s ease 0.3s;
   }
 
@@ -145,14 +165,14 @@ export const TestimonialsPeople = styled.div`
 
   .float2._anim-items._anim-items {
     opacity: 0;
-    transform: translate(0, 30%);
+    transform: translate(0, 40%);
     transition: all 1s ease 0.6s;
   }
 
   .float2._anim-items._active {
     opacity: 1;
     transform: translate(0px, 0px);
-  } */
+  }
 `;
 export const TestimonialsPeople2 = styled.div`
   display: inline-flex;
@@ -162,9 +182,9 @@ export const TestimonialsPeople2 = styled.div`
   height: 402px;
   margin-top: -60px;
   z-index: 1;
-  /* .float1._anim-items._anim-items {
+  .float1._anim-items._anim-items {
     opacity: 0;
-    transform: translate(0, 30%);
+    transform: translate(0, 40%);
     transition: all 1s ease 0.3s;
   }
 
@@ -175,14 +195,14 @@ export const TestimonialsPeople2 = styled.div`
 
   .float2._anim-items._anim-items {
     opacity: 0;
-    transform: translate(0, 30%);
+    transform: translate(0, 40%);
     transition: all 1s ease 0.6s;
   }
 
   .float2._anim-items._active {
     opacity: 1;
     transform: translate(0px, 0px);
-  } */
+  }
 `;
 export const TestimonialsPeople3 = styled.div`
   display: inline-flex;
@@ -192,9 +212,9 @@ export const TestimonialsPeople3 = styled.div`
   height: 402px;
   margin-top: 40px;
   z-index: 1;
-  /* .float1._anim-items._anim-items {
+  .float1._anim-items._anim-items {
     opacity: 0;
-    transform: translate(0, 30%);
+    transform: translate(0, 40%);
     transition: all 1s ease 0.3s;
   }
 
@@ -205,14 +225,14 @@ export const TestimonialsPeople3 = styled.div`
 
   .float2._anim-items._anim-items {
     opacity: 0;
-    transform: translate(0, 30%);
+    transform: translate(0, 40%);
     transition: all 1s ease 0.6s;
   }
 
   .float2._anim-items._active {
     opacity: 1;
     transform: translate(0px, 0px);
-  } */
+  }
 `;
 export const TestimonialsPeopleLeft = styled.div`
   display: flex;

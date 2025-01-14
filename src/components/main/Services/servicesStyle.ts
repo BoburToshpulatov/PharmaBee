@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import womanSmile from "../../assets/services-img/woman-smile.png";
+import womanSmile from "../../../assets/services-img/woman-smile.png";
 
 export const BackgroundImg = styled.div`
   position: relative; /* Ensures proper stacking of child elements */

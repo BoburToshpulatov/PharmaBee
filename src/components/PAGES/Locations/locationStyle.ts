@@ -39,6 +39,16 @@ export const BackgroundText = styled.div`
     font-weight: 900;
     line-height: 82px; /* 113.889% */
   }
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(80%, 0) scale(0.1);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
 `;
 export const HomeDirect = styled.div`
   display: flex;
@@ -90,6 +100,16 @@ export const LocationImgTextLeft = styled.div`
   align-items: flex-start;
   gap: 32px;
   align-self: stretch;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: none;
+  }
   h2 {
     color: #849ba9;
 
@@ -166,6 +186,16 @@ export const LocationDivider = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 100px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 100%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: none;
+  }
   h1 {
     color: var(--Dark, #062a3f);
     text-align: center;
@@ -186,6 +216,38 @@ export const LocationBox = styled.div`
   width: 1196px;
   height: 308px;
   margin-top: 50px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 60%);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 60%);
+    transition: all 1s ease 0.2s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+
+  .float2._anim-items {
+    opacity: 0;
+    transform: translate(0, 60%);
+    transition: all 1s ease 0.4s;
+  }
+
+  .float2._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 export const LocationBoxMini = styled.div`
   display: flex;
@@ -390,6 +452,16 @@ export const ContactUsRight = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(-90%, 0);
+    transition: all 1s ease;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
   h2 {
     color: var(--Tertiary-2, #82929b);
 

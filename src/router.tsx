@@ -1,12 +1,12 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import HomeComponent from "./components/Home/home";
+import Footer from "./components/main/Footer/Footer";
+import Navbar from "./components/main/Navbar/Navbar";
+import HomeComponent from "./components/main/Home/home";
 import AboutUs from "./components/PAGES/About/about";
-import ShopComponent from "./components/Shop/shop";
-import ServicesComponent from "./components/Services/services";
-import BlogComponent from "./components/Blog/blog";
-import ContactComponent from "./components/Contact/contact";
+import ShopComponent from "./components/main/Shop/shop";
+import ServicesComponent from "./components/main/Services/services";
+import BlogComponent from "./components/main/Blog/blog";
+import ContactComponent from "./components/main/Contact/contact";
 import TrackComponent from "./components/PAGES/TrackOrder/track";
 import LocationComponent from "./components/PAGES/Locations/location";
 import PricingComponent from "./components/PAGES/Pricing/pricing";
@@ -16,6 +16,7 @@ import FaqComponent from "./components/PAGES/FAQ/faq";
 import ComingsoonComponent from "./components/PAGES/ComingSoon/comingsoon";
 import PopupComponent from "./components/PAGES/Popup/popup";
 import NotFound from "./components/PAGES/404/404";
+import BlogDetail from "./components/main/blog-DETAILS/blogDetail";
 
 const RouterComponents = () => {
   let location = useLocation();
@@ -42,6 +43,7 @@ const RouterComponents = () => {
         <Route path="/404" element={<NotFound />} />
         <Route path="/comingsoon" element={<ComingsoonComponent />} />
         <Route path="/popup" element={<PopupComponent />} />
+        <Route path="/blogDetail/:id" element={<BlogDetail />} />
       </Routes>
       {hiddenNavbar && <Footer />}
     </>

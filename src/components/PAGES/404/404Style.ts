@@ -15,6 +15,16 @@ export const NotFoundPageMain = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 64px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(0, 80%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 `;
 
 export const NotFoundPageMainLeft = styled.div`
@@ -24,6 +34,26 @@ export const NotFoundPageMainLeft = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
+  .float._anim-items {
+    opacity: 0;
+    transform: translate(-220%, 0);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  .float1._anim-items {
+    opacity: 0;
+    transform: translate(0, 150%);
+    transition: all 1s ease 0.3s;
+  }
+
+  .float1._anim-items._active {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
   h1 {
     color: var(--Dark, #062a3f);
 

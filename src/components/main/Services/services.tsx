@@ -27,21 +27,21 @@ import {
   TestimonialsPeopleLeft,
   TestimonialsPeopleRight,
 } from "./servicesStyle";
-import scientists from "../../assets/services-img/image.png";
-import polygon from "../../assets/services-img/bg-polygon (3).svg";
-import Doctor1 from "../../assets/services-img/woman-doctor.png";
-import Doctor2 from "../../assets/services-img/man-doctor.png";
-import Doctor3 from "../../assets/services-img/doctor3.png";
-import Doctor4 from "../../assets/services-img/doctor4.png";
-import Doctor5 from "../../assets/services-img/doctor5.png";
-import Doctor6 from "../../assets/services-img/doctor6.png";
-import miniPolygon from "../../assets/home-img/icon-polygon.svg";
-import lorry from "../../assets/home-img/shipped.svg";
-import support from "../../assets/home-img/support.svg";
-import approved from "../../assets/home-img/approved.svg";
-import jody from "../../assets/home-img/jody.png";
-import gene from "../../assets/home-img/gene.png";
-import divider from "../../assets/home-img/divider (1).svg";
+import scientists from "../../../assets/services-img/image.png";
+import polygon from "../../../assets/services-img/bg-polygon (3).svg";
+import Doctor1 from "../../../assets/services-img/woman-doctor.png";
+import Doctor2 from "../../../assets/services-img/man-doctor.png";
+import Doctor3 from "../../../assets/services-img/doctor3.png";
+import Doctor4 from "../../../assets/services-img/doctor4.png";
+import Doctor5 from "../../../assets/services-img/doctor5.png";
+import Doctor6 from "../../../assets/services-img/doctor6.png";
+import miniPolygon from "../../../assets/home-img/icon-polygon.svg";
+import lorry from "../../../assets/home-img/shipped.svg";
+import support from "../../../assets/home-img/support.svg";
+import approved from "../../../assets/home-img/approved.svg";
+import jody from "../../../assets/home-img/jody.png";
+import gene from "../../../assets/home-img/gene.png";
+import divider from "../../../assets/home-img/divider (1).svg";
 
 const ServicesComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   BackgroundImg,
   BackgroundText,
@@ -29,12 +29,50 @@ import staff6 from "../../../assets/team-img/staff6.png";
 
 const TeamComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
+
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
   return (
     <>
       <BackgroundImg>
         <img src={scientist} alt="background-img" />
         <BackgroundText>
-          <h1>Our Team</h1>
+          <h1 className="float _anim-items _anim-no-hide">Our Team</h1>
           <HomeDirect>
             <span>
               <i className="fas fa-home"></i>
@@ -62,7 +100,9 @@ const TeamComponent = () => {
         <Founders>
           <TeamText>
             <h2>TEAM</h2>
-            <h1>Our Professional Team</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Our Professional Team
+            </h1>
             <p>
               Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
               pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -71,7 +111,7 @@ const TeamComponent = () => {
           </TeamText>
 
           <TeamMembers>
-            <TeamMembersMini>
+            <TeamMembersMini className="float _anim-items _anim-no-hide">
               <TeamMembersMiniTop>
                 <img src={team1} alt="team-img" />
               </TeamMembersMiniTop>
@@ -80,7 +120,7 @@ const TeamComponent = () => {
                 <p>Founder PharmaBee</p>
               </TeamMembersMiniBottom>
             </TeamMembersMini>
-            <TeamMembersMini>
+            <TeamMembersMini className="float1 _anim-items _anim-no-hide">
               <TeamMembersMiniTop>
                 <img src={team2} alt="team-img" />
               </TeamMembersMiniTop>
@@ -89,7 +129,7 @@ const TeamComponent = () => {
                 <p>CEO & Founder</p>
               </TeamMembersMiniBottom>
             </TeamMembersMini>
-            <TeamMembersMini>
+            <TeamMembersMini className="float2 _anim-items _anim-no-hide">
               <TeamMembersMiniTop>
                 <img src={team3} alt="team-img" />
               </TeamMembersMiniTop>
@@ -102,12 +142,12 @@ const TeamComponent = () => {
         </Founders>
 
         <StaffText>
-          <h1>Our Staff</h1>
+          <h1 className="float _anim-items _anim-no-hide">Our Staff</h1>
           <img src={divider} alt="divider-icon" />
         </StaffText>
 
         <TeamMembers>
-          <TeamMembersMini>
+          <TeamMembersMini className="float _anim-items _anim-no-hide">
             <TeamMembersMiniTop>
               <img src={staff1} alt="team-img" />
             </TeamMembersMiniTop>
@@ -116,7 +156,7 @@ const TeamComponent = () => {
               <p>Staff</p>
             </TeamMembersMiniBottom>
           </TeamMembersMini>
-          <TeamMembersMini>
+          <TeamMembersMini className="float1 _anim-items _anim-no-hide">
             <TeamMembersMiniTop>
               <img src={staff2} alt="team-img" />
             </TeamMembersMiniTop>
@@ -125,7 +165,7 @@ const TeamComponent = () => {
               <p>Staff</p>
             </TeamMembersMiniBottom>
           </TeamMembersMini>
-          <TeamMembersMini>
+          <TeamMembersMini className="float2 _anim-items _anim-no-hide">
             <TeamMembersMiniTop>
               <img src={staff3} alt="team-img" />
             </TeamMembersMiniTop>
@@ -137,7 +177,7 @@ const TeamComponent = () => {
         </TeamMembers>
 
         <TeamMembers2>
-          <TeamMembersMini>
+          <TeamMembersMini className="float _anim-items _anim-no-hide">
             <TeamMembersMiniTop>
               <img src={staff4} alt="team-img" />
             </TeamMembersMiniTop>
@@ -146,7 +186,7 @@ const TeamComponent = () => {
               <p>Staff</p>
             </TeamMembersMiniBottom>
           </TeamMembersMini>
-          <TeamMembersMini>
+          <TeamMembersMini className="float1 _anim-items _anim-no-hide">
             <TeamMembersMiniTop>
               <img src={staff5} alt="team-img" />
             </TeamMembersMiniTop>
@@ -155,7 +195,7 @@ const TeamComponent = () => {
               <p>Staff</p>
             </TeamMembersMiniBottom>
           </TeamMembersMini>
-          <TeamMembersMini>
+          <TeamMembersMini className="float2 _anim-items _anim-no-hide">
             <TeamMembersMiniTop>
               <img src={staff6} alt="team-img" />
             </TeamMembersMiniTop>

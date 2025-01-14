@@ -13,9 +13,9 @@ import {
   PagesPopper,
   PopperInf,
 } from "./styled";
-import clock from "../../assets/navbar-img/clock.svg";
-import operator from "../../assets/navbar-img/operator.svg";
-import logo from "../../assets/navbar-img/pharmabee-logo.svg";
+import clock from "../../../assets/navbar-img/clock.svg";
+import operator from "../../../assets/navbar-img/operator.svg";
+import logo from "../../../assets/navbar-img/pharmabee-logo.svg";
 import * as React from "react";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";

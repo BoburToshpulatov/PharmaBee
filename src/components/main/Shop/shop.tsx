@@ -18,13 +18,13 @@ import {
   MotherAndBabyTop,
   PriceSale,
 } from "./shopStyle";
-import shop from "../../assets/shop-img/image.png";
-import microscope from "../../assets/home-img/microscope.png";
-import mask from "../../assets/home-img/mask.png";
-import thermometer from "../../assets/home-img/thermometer.png";
-import pills from "../../assets/home-img/pills.png";
-import liquid from "../../assets/home-img/liquid.png";
-import walking from "../../assets/home-img/walking.png";
+import shop from "../../../assets/shop-img/image.png";
+import microscope from "../../../assets/home-img/microscope.png";
+import mask from "../../../assets/home-img/mask.png";
+import thermometer from "../../../assets/home-img/thermometer.png";
+import pills from "../../../assets/home-img/pills.png";
+import liquid from "../../../assets/home-img/liquid.png";
+import walking from "../../../assets/home-img/walking.png";
 
 const ShopComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);

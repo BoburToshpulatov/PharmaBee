@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   AccordionMain,
   AccordionMainLeft,
@@ -25,7 +25,6 @@ import process1 from "../../../assets/faq/process1.png";
 import process2 from "../../../assets/faq/process2.png";
 import process3 from "../../../assets/faq/process3.png";
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
@@ -42,12 +41,49 @@ const FaqComponent = () => {
       setExpanded(isExpanded ? panel : false);
     };
 
+  const animItemsRef = useRef<NodeListOf<Element> | null>(null);
+
+  useEffect(() => {
+    animItemsRef.current = document.querySelectorAll("._anim-items");
+
+    if (animItemsRef.current?.length) {
+      const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: "0px", // Trigger exactly when it enters viewport
+        threshold: 0, // Trigger as soon as any part is visible
+      };
+
+      const observerCallback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          const animItem = entry.target as HTMLElement;
+
+          if (entry.isIntersecting) {
+            animItem.classList.add("_active");
+            console.log("Element visible:", animItem); // Debug
+          } else if (!animItem.classList.contains("_anim-no-hide")) {
+            animItem.classList.remove("_active");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      animItemsRef.current.forEach((item) => observer.observe(item));
+
+      return () => {
+        animItemsRef.current?.forEach((item) => observer.unobserve(item));
+      };
+    }
+  }, []);
   return (
     <>
       <BackgroundImg>
         <img src={scientist} alt="background-img" />
         <BackgroundText>
-          <h1>FAQ</h1>
+          <h1 className="float _anim-items _anim-no-hide">FAQ</h1>
           <HomeDirect>
             <span>
               <i className="fas fa-home"></i>
@@ -74,7 +110,9 @@ const FaqComponent = () => {
         />
         <FaqMainText>
           <h2>FAQ</h2>
-          <h1>Have Any Question?</h1>
+          <h1 className="float _anim-items _anim-no-hide">
+            Have Any Question?
+          </h1>
           <p>
             Risus turpis blandit tellus orci a. Vel quam lobortis ut nibh
             pretium eu leo. Blandit nibh pharetra viverra velit celerisque sit
@@ -82,22 +120,22 @@ const FaqComponent = () => {
           </p>
         </FaqMainText>
         <Process>
-          <ProcessMini1>
+          <ProcessMini1 className="float _anim-items _anim-no-hide">
             <img src={process1} alt="process-img" />
             <h1>Get Started</h1>
           </ProcessMini1>
-          <ProcessMini2>
+          <ProcessMini2 className="float1 _anim-items _anim-no-hide">
             <img src={process2} alt="process2-img" />
             <h1>Product</h1>
           </ProcessMini2>
-          <ProcessMini3>
+          <ProcessMini3 className="float2 _anim-items _anim-no-hide">
             <img src={process3} alt="process3-img" />
             <h1>Payment</h1>
           </ProcessMini3>
         </Process>
 
         <AccordionMain>
-          <AccordionMainLeft>
+          <AccordionMainLeft className="float _anim-items _anim-no-hide">
             <h2>Getting Started</h2>
             <Accordion
               className="accordion"
@@ -203,7 +241,7 @@ const FaqComponent = () => {
               </AccordionDetails>
             </Accordion>
           </AccordionMainLeft>
-          <AccordionMainRight></AccordionMainRight>
+          <AccordionMainRight className="float1 _anim-items _anim-no-hide"></AccordionMainRight>
         </AccordionMain>
 
         <ContactUs>
@@ -224,7 +262,9 @@ const FaqComponent = () => {
           </ContactUsLeft>
           <ContactUsRight>
             <h2>CONTACT US</h2>
-            <h1>Free consultation with us now</h1>
+            <h1 className="float _anim-items _anim-no-hide">
+              Free consultation with us now
+            </h1>
             <p>
               Augue Sed viverra nulla Interdum mia bibendum velit sapien usop
               scelerisqu ictum quam tincidunt nec feugiat augue tincidunt Etiam
