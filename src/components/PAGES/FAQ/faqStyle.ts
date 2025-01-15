@@ -158,7 +158,7 @@ export const Process = styled.div`
 
   .float1._anim-items {
     opacity: 0;
-    transform: translate(0, 60%);
+    transform: translate(0, 10%);
     transition: all 1s ease 0.3s;
   }
 
@@ -378,7 +378,7 @@ export const ContactUsLeft = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 `;
-export const ContactUsLeftEmail = styled.div`
+export const ContactUsLeftEmail = styled.form`
   display: flex;
   width: 538px;
   height: 468px;

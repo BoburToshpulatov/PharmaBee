@@ -215,7 +215,7 @@ export const ContactUsLeft = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 `;
-export const ContactUsLeftEmail = styled.div`
+export const ContactUsLeftEmail = styled.form`
   display: flex;
   width: 538px;
   height: 468px;
@@ -235,6 +235,8 @@ export const ContactUsLeftEmail = styled.div`
     gap: 24px;
     align-self: stretch;
     color: var(--Tertiary-2, #82929b);
+    /* box-sizing: border-box; */
+    position: relative;
 
     /* Paragraph/Hero */
     font-family: Nunito;
@@ -300,6 +302,7 @@ export const MsgBtn = styled.button<{ isHovered: boolean }>`
   transform: ${({ isHovered }) =>
     isHovered ? "translateY(-10px)" : "translateY(0)"};
 `;
+
 export const ContactUsRight = styled.div`
   width: 475px;
   height: 340px;

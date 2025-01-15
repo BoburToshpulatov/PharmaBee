@@ -22,8 +22,39 @@ import window from "../../../assets/contactUs-img/window.svg";
 import clock from "../../../assets/contactUs-img/clock.svg";
 import operator from "../../../assets/contactUs-img/operator.svg";
 import mail from "../../../assets/contactUs-img/mail.svg";
+import emailjs from "@emailjs/browser";
 
 const ContactComponent = () => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_ov5mo1m",
+        "template_sgdiop5",
+        form.current,
+        "zPaYteMHCq7iZFFy1"
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          alert("Your message was successfully sent!");
+        },
+        (error: { text: string }) => {
+          console.log("FAILED...", error.text);
+          alert(
+            `Your message failed to send.Please try again. ${
+              error.text || "Unknown error."
+            }`
+          );
+        }
+      );
+  };
+
   const [activeButton, setActiveButton] = useState<number | null>(null);
 
   const animItemsRef = useRef<NodeListOf<Element> | null>(null);
@@ -129,6 +160,7 @@ const ContactComponent = () => {
           </MapContainerLeft>
           <MapContainerRight className="float _anim-items _anim-no-hide">
             <iframe
+              title="Embedded Example Content"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d317750.5275089563!2d-0.161821!3d51.523746!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2z0JvQvtC90LTQvtC90YHQutC40Lkg0JPQu9Cw0Lc!5e0!3m2!1sru!2sus!4v1734441199875!5m2!1sru!2sus"
               width="578"
               height="400"
@@ -142,12 +174,35 @@ const ContactComponent = () => {
 
         <ContactUs>
           <ContactUsLeft>
-            <ContactUsLeftEmail>
-              <input type="text" placeholder="Your name" />
-              <input type="email" placeholder="Email address" />
-              <input type="number" placeholder="Phone Number" />
-              <textarea placeholder="Message"></textarea>
+            <ContactUsLeftEmail ref={form} onSubmit={sendEmail}>
+              <input
+                type="text"
+                id="name"
+                name="user_name"
+                placeholder="Your name"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                name="user_email"
+                placeholder="Email address"
+                required
+              />
+              <input
+                type="number"
+                name="phone_number"
+                placeholder="Your number"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                required
+              ></textarea>
               <MsgBtn
+                type="submit"
+                value="Send"
                 isHovered={activeButton === 7}
                 onMouseEnter={() => setActiveButton(7)}
                 onMouseLeave={() => setActiveButton(null)}

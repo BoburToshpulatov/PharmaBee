@@ -79,8 +79,12 @@ import gene from "../../../assets/home-img/gene.png";
 import hindi from "../../../assets/home-img/hindiwoman.png";
 import pills2 from "../../../assets/home-img/pills2.png";
 import cream from "../../../assets/home-img/cream.png";
+import { blogData } from "../blog-DETAILS/mockData/mock";
+import { Link } from "react-router-dom";
 
 const HomeComponent = () => {
+  const [count, setCount] = useState<number>(0);
+
   const [activeButton, setActiveButton] = useState<number | null>(null);
   const value = 4;
 
@@ -268,7 +272,7 @@ const HomeComponent = () => {
                 <PriceSale>
                   <p className="sale">$86</p> <p>$46</p>
                 </PriceSale>
-                <button>Add to cart</button>
+                <button onClick={() => setCount(count + 1)}>Add to cart</button>
               </MiniBoxBottom>
             </CounterMedicineBottomMini>
             <CounterMedicineBottomMini>
@@ -660,37 +664,29 @@ const HomeComponent = () => {
           <img src={divider} alt="divider-icon" />
         </Testimonials>
 
-        <PromotionInf>
-          <PromotionInfMini className="float _anim-items _anim-no-hide">
-            <img src={hindi} alt="woman-img" />
-            <PromotionInfMiniBottom>
-              <h1>
-                Scelerisque tincidunt felis Eget qum met arcu posuere vitae
-                tempor.
-              </h1>
-              <p>June 2, 2021 - No Comments</p>
-            </PromotionInfMiniBottom>
-          </PromotionInfMini>
-          <PromotionInfMini className="float _anim-items _anim-no-hide">
-            <img src={pills2} alt="pills" />
-            <PromotionInfMiniBottom>
-              <h1>
-                Scelerisque tincidunt felis Eget qum met arcu posuere vitae
-                tempor.
-              </h1>
-              <p>June 2, 2021 - No Comments</p>
-            </PromotionInfMiniBottom>
-          </PromotionInfMini>
-          <PromotionInfMini className="float _anim-items _anim-no-hide">
-            <img src={cream} alt="cream" />
-            <PromotionInfMiniBottom>
-              <h1>
-                Scelerisque tincidunt felis Eget qum met arcu posuere vitae
-                tempor.
-              </h1>
-              <p>June 2, 2021 - No Comments</p>
-            </PromotionInfMiniBottom>
-          </PromotionInfMini>
+        <PromotionInf className="float _anim-items _anim-no-hide">
+          {blogData.map((value) => (
+            <PromotionInfMini key={value.id}>
+              <Link
+                to={`/blogDetail/${value.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <img src={value.photo} alt="woman-img" />
+              </Link>
+              <Link
+                to={`/blogDetail/${value.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <PromotionInfMiniBottom>
+                  <h1>
+                    Scelerisque tincidunt felis Eget qum met arcu posuere vitae
+                    tempor.
+                  </h1>
+                  <p>June 2, 2021 - No Comments</p>
+                </PromotionInfMiniBottom>
+              </Link>
+            </PromotionInfMini>
+          ))}
         </PromotionInf>
       </MiddleWrapper>
     </>

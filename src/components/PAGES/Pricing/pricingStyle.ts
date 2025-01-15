@@ -591,7 +591,7 @@ export const ContactUsLeft = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 `;
-export const ContactUsLeftEmail = styled.div`
+export const ContactUsLeftEmail = styled.form`
   display: flex;
   width: 538px;
   height: 468px;

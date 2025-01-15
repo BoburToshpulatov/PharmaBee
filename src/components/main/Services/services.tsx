@@ -27,6 +27,7 @@ import {
   TestimonialsPeopleLeft,
   TestimonialsPeopleRight,
 } from "./servicesStyle";
+import emailjs from "@emailjs/browser";
 import scientists from "../../../assets/services-img/image.png";
 import polygon from "../../../assets/services-img/bg-polygon (3).svg";
 import Doctor1 from "../../../assets/services-img/woman-doctor.png";
@@ -46,6 +47,7 @@ import divider from "../../../assets/home-img/divider (1).svg";
 const ServicesComponent = () => {
   const [activeButton, setActiveButton] = useState<number | null>(null);
 
+  // Floating effect
   const animItemsRef = useRef<NodeListOf<Element> | null>(null);
 
   useEffect(() => {
@@ -83,6 +85,37 @@ const ServicesComponent = () => {
       };
     }
   }, []);
+
+  //Email Js
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_ov5mo1m",
+        "template_sgdiop5",
+        form.current,
+        "zPaYteMHCq7iZFFy1"
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          alert("Your message was successfully sent!");
+        },
+        (error: { text: string }) => {
+          console.log("FAILED...", error.text);
+          alert(
+            `Your message failed to send.Please try again. ${
+              error.text || "Unknown error."
+            }`
+          );
+        }
+      );
+  };
   return (
     <>
       <BackgroundImg>
@@ -381,11 +414,25 @@ const ServicesComponent = () => {
 
         <ContactUs>
           <ContactUsLeft>
-            <ContactUsLeftEmail>
-              <input type="text" placeholder="Your name" />
-              <input type="email" placeholder="Email address" />
-              <input type="number" placeholder="Phone Number" />
-              <textarea placeholder="Message"></textarea>
+            <ContactUsLeftEmail ref={form} onSubmit={sendEmail}>
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Your name"
+                required
+              />
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Email address"
+                required
+              />
+              <input type="number" placeholder="Phone Number" required />
+              <textarea
+                name="message"
+                placeholder="Message"
+                required
+              ></textarea>
               <MsgBtn
                 isHovered={activeButton === 7}
                 onMouseEnter={() => setActiveButton(7)}
