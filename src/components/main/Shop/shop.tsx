@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Rating from "@mui/material/Rating";
 import {
   BackgroundImg,
@@ -26,8 +26,12 @@ import pills from "../../../assets/home-img/pills.png";
 import liquid from "../../../assets/home-img/liquid.png";
 import walking from "../../../assets/home-img/walking.png";
 
-const ShopComponent = () => {
-  const [activeButton, setActiveButton] = useState<number | null>(null);
+interface ShopProps {
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const ShopComponent = ({ count, setCount }: ShopProps) => {
   const value = 4;
 
   const animItemsRef = useRef<NodeListOf<Element> | null>(null);
@@ -138,7 +142,7 @@ const ShopComponent = () => {
                 <PriceSale>
                   <p className="sale">$86</p> <p>$46</p>
                 </PriceSale>
-                <button>Add to cart</button>
+                <button onClick={() => setCount(count + 1)}>Add to cart</button>
               </MiniBoxBottom>
             </CounterMedicineBottomMini>
             <CounterMedicineBottomMini>

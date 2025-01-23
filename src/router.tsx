@@ -17,20 +17,30 @@ import ComingsoonComponent from "./components/PAGES/ComingSoon/comingsoon";
 import PopupComponent from "./components/PAGES/Popup/popup";
 import NotFound from "./components/PAGES/404/404";
 import BlogDetail from "./components/main/blog-DETAILS/blogDetail";
+import { useState } from "react";
+import LoginComponent from "./components/main/Login/LoginComponent";
+import SignUp from "./components/main/Login/SignUp";
 
 const RouterComponents = () => {
+  const [count, setCount] = useState<number>(0);
   let location = useLocation();
 
   const hiddenNavbar =
-    location.pathname !== "/comingsoon" && location.pathname !== "/popup";
+    location.pathname !== "/comingsoon" &&
+    location.pathname !== "/popup" &&
+    location.pathname !== "/login" &&
+    location.pathname !== "/signUp";
 
   return (
     <>
-      {hiddenNavbar && <Navbar />}
+      {hiddenNavbar && <Navbar count={count} />}
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/shop" element={<ShopComponent />} />
+        <Route
+          path="/shop"
+          element={<ShopComponent setCount={setCount} count={count} />}
+        />
         <Route path="/services" element={<ServicesComponent />} />
         <Route path="/blog" element={<BlogComponent />} />
         <Route path="/contact" element={<ContactComponent />} />
@@ -44,6 +54,8 @@ const RouterComponents = () => {
         <Route path="/comingsoon" element={<ComingsoonComponent />} />
         <Route path="/popup" element={<PopupComponent />} />
         <Route path="/blogDetail/:id" element={<BlogDetail />} />
+        <Route path="/login" element={<LoginComponent />} />
+        <Route path="/signUp" element={<SignUp />} />
       </Routes>
       {hiddenNavbar && <Footer />}
     </>

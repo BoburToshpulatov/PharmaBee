@@ -1,4 +1,3 @@
-import React from "react";
 import { useRef, useEffect } from "react";
 import {
   BackgroundImg,
@@ -54,6 +53,9 @@ const BlogComponent = () => {
       };
     }
   }, []);
+
+  // Counting
+
   return (
     <>
       <BackgroundImg>

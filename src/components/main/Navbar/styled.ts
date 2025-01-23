@@ -189,11 +189,19 @@ export const PopperInf = styled.div`
 
 export const Cart = styled.div`
   display: flex;
-  justify-content: center;
+  width: auto;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-right: 8px;
+
   cursor: pointer;
+  .shopping-cart {
+    color: var(--Tertiary-2, #82929b);
+  }
+  .shopping-cart:hover {
+    color: var(--Tertiary-2, rgb(89, 95, 99));
+    transition: all 0.2s ease;
+  }
   i {
     color: var(--Tertiary-2, #82929b);
     font-family: "Font Awesome 5 Free";
@@ -202,4 +210,7 @@ export const Cart = styled.div`
     font-weight: 900;
     line-height: normal;
   }
+`;
+export const Drawer = styled.div`
+  display: flex;
 `;

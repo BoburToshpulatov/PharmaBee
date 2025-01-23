@@ -76,9 +76,6 @@ import logo8 from "../../../assets/home-img/logo8.svg";
 import logo9 from "../../../assets/home-img/logo9.svg";
 import jody from "../../../assets/home-img/jody.png";
 import gene from "../../../assets/home-img/gene.png";
-import hindi from "../../../assets/home-img/hindiwoman.png";
-import pills2 from "../../../assets/home-img/pills2.png";
-import cream from "../../../assets/home-img/cream.png";
 import { blogData } from "../blog-DETAILS/mockData/mock";
 import { Link } from "react-router-dom";
 

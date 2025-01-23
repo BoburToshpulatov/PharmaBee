@@ -1,4 +1,5 @@
 import {
+  //components
   Cart,
   NavbarBottom,
   NavbarBottomMain,
@@ -13,19 +14,32 @@ import {
   PagesPopper,
   PopperInf,
 } from "./styled";
-import clock from "../../../assets/navbar-img/clock.svg";
-import operator from "../../../assets/navbar-img/operator.svg";
-import logo from "../../../assets/navbar-img/pharmabee-logo.svg";
 import * as React from "react";
+import { AiOutlineClose } from "react-icons/ai"; // Import the close icon
+// MUI
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Popper, { PopperPlacementType } from "@mui/material/Popper";
 import Typography from "@mui/material/Typography";
 import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, IconButton } from "@mui/material";
+// react-router-dom
 import { Link, useLocation } from "react-router-dom";
+// Images
+import clock from "../../../assets/navbar-img/clock.svg";
+import operator from "../../../assets/navbar-img/operator.svg";
+import logo from "../../../assets/navbar-img/pharmabee-logo.svg";
 
-const Navbar = () => {
+interface NavbarProps {
+  count: number;
+}
+
+const Navbar = ({ count }: NavbarProps) => {
   const location = useLocation();
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLDivElement | null>(null);
@@ -59,6 +73,16 @@ const Navbar = () => {
       }
     };
   }, []);
+
+  // MUI - Drawer
+
+  const [openDrawer, setOpenDrawer] = React.useState(false);
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpenDrawer(newOpen);
+  };
+
+  // Products in the cart
 
   return (
     <NavbarMain>
@@ -244,10 +268,64 @@ const Navbar = () => {
             </Link>
           </Pages>
           <Cart>
-            <i className="fas fa-search"></i>
-            <Badge badgeContent={4} color="success">
-              <ShoppingCartIcon color="action" />
-            </Badge>
+            <Link to="/login">
+              <Button
+                variant="contained"
+                // color="success"
+                sx={{ color: "white", background: "#19be6f" }}
+              >
+                LOGIN
+              </Button>
+            </Link>
+            <IconButton aria-label="Example">
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                style={{ height: "20px", width: "20px" }}
+              />
+            </IconButton>
+            <IconButton>
+              <Badge badgeContent={1} color="success">
+                <ShoppingCartIcon
+                  className="shopping-cart"
+                  onClick={toggleDrawer(true)}
+                />
+                <Drawer
+                  anchor="right" // Specifies the drawer to open from the right
+                  open={openDrawer}
+                  onClose={toggleDrawer(false)}
+                  PaperProps={{
+                    sx: {
+                      transition: "transform all 0.5s ease", // Custom transition for drawer content
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      p: 2,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    {/* Exit Button */}
+                    <IconButton
+                      onClick={toggleDrawer(false)}
+                      sx={{
+                        alignSelf: "flex-end",
+                      }}
+                    >
+                      <AiOutlineClose size={24} />
+                    </IconButton>
+
+                    {/* Content inside drawer */}
+                    <div style={{ marginTop: "16px" }}>
+                      <h3>Drawer Title</h3>
+                      <p>This is some content inside the drawer.</p>
+                    </div>
+                  </Box>
+                </Drawer>
+              </Badge>
+            </IconButton>
           </Cart>
         </NavbarBottomMain>
       </NavbarBottom>
